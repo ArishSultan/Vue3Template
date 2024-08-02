@@ -8,7 +8,7 @@ export interface User {
   id?: string
   name: string
   age: number
-  salary: number
+  salary?: number
   email?: string
   image?: string
   accessToken?: string
