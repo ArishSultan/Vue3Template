@@ -20,8 +20,9 @@
     </div>
 </template>
 <script setup lang="ts">
-import { ref, onMounted } from 'vue';
+import { onMounted, ref } from 'vue';
 import type { User } from '../interfaces/User';
+
 const user = ref<User | null>(null);
 const loading = ref(true);
 const error = ref<string | null>(null);
