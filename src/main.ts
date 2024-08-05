@@ -8,20 +8,22 @@ import store from './store';
 import vuetify from './vuetify';
 
 import * as Sentry from '@sentry/vue';
-import { isDevMode } from '@/utils/env';
+import { ENVIRONMENT, isDevEnv } from '@/utils/env';
 
 const vueApp = createApp(App);
 
 Sentry.init({
+    environment: ENVIRONMENT,
     app: vueApp,
     dsn: import.meta.env.VITE_SENTRY_DSN,
     integrations: [
-        Sentry.browserTracingIntegration(),
-        Sentry.replayIntegration()
+        Sentry.browserTracingIntegration({
+            router,
+        }),
+        Sentry.replayIntegration(),
     ],
     tracesSampleRate: 1.0,
-    // tracePropagationTargets: ['http://localhost:5173', 'https://example.com'],
-    replaysSessionSampleRate: isDevMode ? 1.0 : 0.0,
+    replaysSessionSampleRate: isDevEnv ? 1.0 : 0.0,
     replaysOnErrorSampleRate: 1.0,
     profilesSampleRate: 1.0,
 });
