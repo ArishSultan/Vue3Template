@@ -10,12 +10,15 @@
     "build-only": "vite build",
     "type-check": "vue-tsc --build --force",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
-    "prettier:format": "prettier --write \"**/*.{ts,tsx,js,jsx,css}\"",
-    "prettier:check": "prettier --check \"**/*.{ts,tsx,js,jsx,css}\""
+    "prettier:format": "prettier --write \"**/*.{ts,js,css,vue}\"",
+    "prettier:check": "prettier --check \"**/*.{ts,js,css,vue}\""
   },
   "dependencies": {
+    "@sentry/vue": "^8.22.0",
     "axios": "^1.7.2",
+    "dotenv": "^8.2.0",
     "ky": "^1.5.0",
+    "node-fetch": "^3.3.2",
     "pinia": "^2.2.0",
     "vue": "^3.4.29",
     "vue-router": "^4.4.2",
